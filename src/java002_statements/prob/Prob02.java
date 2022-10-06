@@ -1,4 +1,4 @@
-package java002_statments.prob;
+package java002_statements.prob;
 
 /*
  * switch~case문을 이용해서 메뉴의 가격을 제공해주는 프로그램을 구현하시오.

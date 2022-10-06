@@ -1,4 +1,4 @@
-package java1006_basic.answ;
+package java001_basic.answ;
 
 /*
 1  사과를 담는데 필요한 바구니의 수를 구하는 코드이다. 

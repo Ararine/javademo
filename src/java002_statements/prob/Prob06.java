@@ -1,4 +1,4 @@
-package java002_statments.prob;
+package java002_statements.prob;
 
 /*
  * 직급에 따른 수령 월급

@@ -1,4 +1,4 @@
-package java1006_basic.answ;
+package java001_basic.answ;
 /*
 * 동전교환프로그램
 * 1 가장 적은 동전으로 교환할 수 있는 프로그램을 작성하시오

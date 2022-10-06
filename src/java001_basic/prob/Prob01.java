@@ -1,4 +1,4 @@
-package java1006_basic.prob;
+package java001_basic.prob;
 
 /*
  * num변수의 값이 10의 배수이면 1을 아니면 0을 

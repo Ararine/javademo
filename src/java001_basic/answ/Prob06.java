@@ -1,4 +1,4 @@
-package java1006_basic.answ;
+package java001_basic.answ;
 
 /*
 1.jumsu변수에 저장된 값에 따라 상, 중, 하를 출력하는 프로그램을 작성하시오.

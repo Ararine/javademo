@@ -1,4 +1,4 @@
-package java1006_basic.prob;
+package java001_basic.answ;
 /*
  * ko, en, jp 평균을 구해서 60점 이상이면 "합격", 60점 미만이면 "불합격"을 
  * 출력하는 프로그램을 구현하세요.
@@ -18,14 +18,15 @@ public class Prob05 {
 		int en = 45;
 		int jp = 22;
 		int hap = ko + en + jp;
-		double avg = (double)hap / 3;
+
+		// 여기에 구현하세요.
 		
-		String result = avg >= 60 ? "합격" : "불합격";
-//		System.out.println("평균  " + avg + "점, " + result + "입니다");
-		System.out.printf("평균  %.1f점, %s입니다", avg, result);
+		//double avg = hap/3.0;
+		//System.out.println(avg);
 		
-		
-		
+		double avg = (double)hap/3;
+		String chk= avg>=60 ? "합격" : "불합격";
+		System.out.printf("%.1f점, %s입니다.\n", avg, chk);
         
 	}//end main()
 

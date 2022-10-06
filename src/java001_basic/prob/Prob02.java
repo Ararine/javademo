@@ -1,4 +1,4 @@
-package java1006_basic.prob;
+package java001_basic.prob;
 
 /*
  * num변수의 절대값을 출력하는 프로그램을 구현하시오.

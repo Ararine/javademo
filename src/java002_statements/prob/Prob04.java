@@ -1,4 +1,4 @@
-package java002_statments.prob;
+package java002_statements.prob;
 
 /* 
 [문제] 중첩if를 이용하여 프로그램을 작성하시오
