@@ -29,10 +29,14 @@ public class Prob03 {
 		if(product < 30000) {
 			if(delivery == "택배") {
 				deliveryMoney = 3000;
-			}else { deliveryMoney = 12000;
+			}else if (delivery == "퀵") {
+				deliveryMoney = 12000;
+				}else {
+					deliveryMoney = 0;
+				}
 		}
-			totalMoney = product + deliveryMoney;
-		}
+	
+		totalMoney = product + deliveryMoney;
 			System.out.printf("물품금액 : %d원\n배달금액 :  %d원\n총  금액 : %d원", product, deliveryMoney, totalMoney);
 		///////////////////////////////
 		
