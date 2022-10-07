@@ -10,7 +10,7 @@ public class Java026_for {
 		for(i = 1;;i++) {
 			sum += i;
 			System.out.printf("i=%d sum=%d\n", i, sum);
-			if(sum >= 15) {
+			if(sum >= 15) {            
 				break;
 			}
 		}
