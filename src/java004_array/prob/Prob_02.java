@@ -43,22 +43,31 @@ public class Prob_02 {
 //			System.out.printf("index가 %d인 열의 합 : %d\n", i, sumC);
 //			System.out.printf("\n");
 //		}
-		int i = 0;
-		int j = 0;
-		for ( i = 0; i < 4; i++) {
-			data[i][3] = 0;
-			for (j = 0; j < 4; j++) {
-				data[i][j] = cnt;
-				if(i == 3 || j == 3) {
-					data[i][3] = data[i][j];
-				}
-				cnt++;
-				System.out.printf("%4d", data[i][j]);
-				
+
+		for( int i = 0; i < data.length-1; i++) {
+			for (int j = 0; j < data[i].length-1; j++) {
+				data[i][j] = cnt++;
 			}
-			System.out.println();
 		}
 
+		for(int i = 0; i <data.length-1; i++) {
+			for(int j = 0; j < data[i].length-1; j++) {
+				data[i][data[i].length-1] += data[i][j];
+				data[data.length-1][j] += data[i][j];
+			}
+			data[data.length-1][data[i].length-1] += data[i][data[i].length-1];  
+		}
+		
+		for(int i = 0; i < data.length; i++) {
+			for (int j = 0; j < data[i].length; j++) {
+				System.out.printf("%4d",data[i][j]);
+			}
+			System.out.printf("\n");
+		}
+//		[0][0] [0][1] [0][2] [0][3] 
+//		[1][0] [1][1] [1][2] [1][3] 
+//		[2][0] [2][1] [2][2] [2][3] 
+//		[3][0] [3][1] [3][2] [3][3] 
 	}// end main()
 
 }// end class
