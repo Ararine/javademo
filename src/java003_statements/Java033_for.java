@@ -14,10 +14,15 @@ public class Java033_for {
 			go: //label 선언
 			for( int i = 1; i <= 3; i++) {
 				for( int j = 1; j <= 2; j++) {
+					if(j %2 != 0) {
 //					break move;
 //					continue move;
-//					break go;
-					break;
+					break go;
+//					continue go;
+//					continue;
+//					break;
+					}
+					System.out.println("j = " + j);
 				}
 				System.out.printf("i=%d\n", i);
 			}
