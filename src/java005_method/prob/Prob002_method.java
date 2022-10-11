@@ -43,15 +43,18 @@ public class Prob002_method {
 //			}
 //		}
 //		return chk;
-		boolean chk = false;
-		for(int i = 0; i < data.length(); i++) {
-			if(data.charAt(i) >= 0 && data.charAt(i) <= 9) chk = true;
-			else {
-				chk = false;
-				break;
-			}
+//		boolean chk = false;
+//		for(int i = 0; i < data.length(); i++) {
+//			if(data.charAt(i) >= 0 && data.charAt(i) <= 9) chk = true;
+//			else {
+//				chk = false;
+//				break;
+//			}
+//		}
+		for(int i = 0; i< data.length(); i++) {
+			if(!(data.charAt(i) >= '0' && data.charAt(i) <= '9')) return false;
 		}
-		return chk;
+		return true;
 	}// end numCheck()
 
 	public static void prnDisplay(boolean chk) {

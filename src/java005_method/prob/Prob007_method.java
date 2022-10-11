@@ -37,15 +37,7 @@ public class Prob007_method {
 
 	private static int[] sort(int[] array, String orderby) {
 		// 구현하시오.
-		int[] grp = new int[array.length];
-		int init = array[0];
-		for(int i = 0; i< array.length ; i++) {
-			grp[i] = array[i];
-		}
-		
-		for(int i = 0; i< array.length ; i++) {
-			if(init < array[i]) init 
-		}
-		return grp;
+
+		return null;
 	}//end sort( )
 }
