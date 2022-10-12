@@ -10,7 +10,7 @@ public class Java065_class {
 		ps.age = 30;
 		ps.gender = '남';
 		ps.develop();
-		ps.run(100);
+		ps.run(/*100*/);
 		
 		System.out.printf("%s %d %c\n", ps.name, ps.age, ps.gender);
 		
@@ -20,7 +20,7 @@ public class Java065_class {
 		pn.age = 28;
 		pn.gender = '여';
 		pn.develop();
-		pn.run(200);
+		pn.run(/*200*/);
 		
 		System.out.printf("%s %d %c\n", pn.name, pn.age, pn.gender);
 	}//end main()

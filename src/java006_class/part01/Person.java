@@ -9,7 +9,7 @@ public class Person {
 		System.out.println("개발한다.");
 	}
 	
-	public void run(int miter) {
-		System.out.println(miter + "달린다.");
+	public void run(/*int miter*/) {
+		System.out.println(/*miter +*/ "달린다.");
 	}
 }
