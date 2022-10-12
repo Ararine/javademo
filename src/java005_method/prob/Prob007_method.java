@@ -25,7 +25,7 @@ public class Prob007_method {
 		int[] result1 = sort(arr, "desc");
 		int[] result2 = sort(arr, "asc");
 		System.out.println("내림 차순 결과");
-		System.out.printf("%d");
+//		System.out.printf("%d");
 		for (int i = 0; i < result1.length; i++) {
 			System.out.println(result1[i]);
 		}
@@ -37,7 +37,37 @@ public class Prob007_method {
 
 	private static int[] sort(int[] array, String orderby) {
 		// 구현하시오.
-
-		return null;
+		int[] group = new int[array.length];
+		for(int i = 0 ; i < group.length ; i++) {
+			group[i] = array[0];
+		}
+		if(orderby.equals("desc")) {			
+		for(int i = 0 ; i < array.length ; i++) {
+			for(int j = 0 ; j < array.length ; j++) {
+				if (i == 0) {
+					if(group[i] < array[j]) group[i] = array[j];
+				}else if (i < array.length-1 && group[i] < group[i-1]) {
+					if(group[i-1] > array[j] && group[i] < array[j]) group[i] = array[j];
+				}else {
+					if(group[i] > array[j]) group[i] = array[j];
+				}
+			}
+		}
+		}
+		
+		if(orderby.equals("asc")) {
+		for(int i = 0 ; i < array.length ; i++) {
+			for(int j = 0 ; j < array.length ; j++) {
+				if (i == 0) {
+					if(group[i] > array[j]) group[i] = array[j];
+				}else if (i < array.length-1 && group[i] > group[i-1]) {
+					if(group[i-1] < array[j] && group[i] > array[j]) group[i] = array[j];
+				}else {
+					if(group[i] < array[j]) group[i] = array[j];
+				}
+			}
+		}
+		}
+		return group;
 	}//end sort( )
 }
