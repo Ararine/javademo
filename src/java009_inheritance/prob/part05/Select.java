@@ -41,7 +41,6 @@ public class Select extends Festival{
 	}
 	
 	
-	
 	//여기에 구현하시오 문제 1/////////////////////////////////////
 	public String toString() {
 		return String.format("%s %7s %8.1f %9b %15d %15d", getName(), getPlace(), getDistance(), isFee(), startPeriod, endPeriod);
