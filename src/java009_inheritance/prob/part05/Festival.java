@@ -3,7 +3,7 @@ package java009_inheritance.prob.part05;
 public class Festival {
 	private String name;
 	private String place;
-	private double distance;
+	private double kiloMeter;
 	private boolean fee;
 
 	
@@ -11,10 +11,10 @@ public class Festival {
 		
 	}
 
-	public Festival(String name, String place, double distance, boolean fee) {
+	public Festival(String name, String place, double kiloMeter, boolean fee) {
 		this.name = name;
 		this.place = place;
-		this.distance = distance;
+		this.kiloMeter = kiloMeter;
 		this.fee = fee;
 	}
 
@@ -34,12 +34,12 @@ public class Festival {
 		this.place = place;
 	}
 
-	public double getDistance() {
-		return distance;
+	public double getKiloMeter() {
+		return kiloMeter;
 	}
 
-	public void setDistance(double distance) {
-		this.distance = distance;
+	public void setKiloMeter(double kiloMeter) {
+		this.kiloMeter = kiloMeter;
 	}
 
 	public boolean isFee() {
@@ -51,12 +51,12 @@ public class Festival {
 	}
 
 	
-	public Festival(double distance) {
-		this.distance = distance;
+	public Festival(double kiloMeter) {
+		this.kiloMeter = kiloMeter;
 	}
 	
 	public String toString() {
-		return String.format("%s %7s %8.1f %9b\n", name, place, distance, fee);
+		return String.format("%s %7s %8.1f %9b\n", name, place, kiloMeter, fee);
 	}
 
 }

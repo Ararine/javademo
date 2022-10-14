@@ -19,7 +19,13 @@ package java009_inheritance.prob.part05;
  * 대구정신건강축제   대구엑스코    279.0     false        20221014        20221015
  * 광안리어방축제   광안리해변    402.0     false        20221014        20221016
  * 
- * 문제2) 
+ * 문제2) Select 클래스에서 prn 메소드를 생성하여 아래와 같이 출력이 되도록 하시오.
+ * 
+ * [출력결과]
+ * 근거리에 서울무형문화축제가 있습니다.
+ * 중거리에 세계풍기인삼엑스포가 있습니다.
+ * 장거리에 대구정신건강축제가 있습니다.
+ * 장거리에 광안리어방축제가 있습니다.
  * 
  */
 public class Prob05_inheritance {
@@ -37,7 +43,12 @@ public class Prob05_inheritance {
 			System.out.println(ss.toString());
 		}
 		/////////////////////////////////////////////////////
+		System.out.println();
 		
+		
+		for(int i=0; i<sl.length; i++) {
+			sl[i].prn();
+		}
 	}
 	
 }
