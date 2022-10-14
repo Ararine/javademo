@@ -24,6 +24,7 @@ package java009_inheritance.part01;
  *    
  *    class 도형{ }
  *    class 삼각형 extends 도형 { }
+ *    삼각형은 도형이다.
  * 
  */
 public class Java092_inheritance {
