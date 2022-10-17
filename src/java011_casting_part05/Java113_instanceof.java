@@ -1,4 +1,4 @@
-package java010_abstract_interface.part05;
+package java011_casting_part05;
 
 class ExamA{
 	void prn() {}
@@ -29,6 +29,10 @@ public class Java113_instanceof {
 	System.out.println(ea instanceof ExamB); //true
 	System.out.println(ea instanceof ExamC); //false
 	
+	ExamB ec = new ExamC();
+	System.out.println(ec instanceof ExamA); //true
+	System.out.println(ec instanceof ExamB); //true
+	System.out.println(ec instanceof ExamC); //true
 	}
 	
 }
