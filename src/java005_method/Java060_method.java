@@ -3,7 +3,7 @@ package java005_method;
 /*
  * [출력결과]
  * 문자열의 길이 : 4
- * 2인덱스 요소각ㅄ 가져오기 : v
+ * 2인덱스 요소값 가져오기 : v
  */
 public class Java060_method {
 
