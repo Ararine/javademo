@@ -17,7 +17,7 @@ public class Java124_RegEx {
 		for(int i=0; i<sn.length(); i++) {
 			char data = sn.charAt(i);
 			if(data == 'a' || data == 'r') sg += "_";
-			else sg += data;
+			else sg += data;  
 		}  
 		System.out.println(sg); //j_v_ ko_e_
 		
