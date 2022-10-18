@@ -18,7 +18,7 @@ public class Java124_RegEx {
 			char data = sn.charAt(i);
 			if(data == 'a' || data == 'r') sg += "_";
 			else sg += data;
-		}
+		}  
 		System.out.println(sg); //j_v_ ko_e_
 		
 		System.out.println("Regular Expression을 이용한 문자 변경");
