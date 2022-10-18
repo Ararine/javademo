@@ -1,4 +1,4 @@
-package java012_api.prob;
+package java012_api;
 
 /* 
  * [출력결과]

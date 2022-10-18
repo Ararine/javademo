@@ -1,4 +1,4 @@
-package java012_api.prob;
+package java012_api;
 
 /*
  * 정규화 표현식(Regular Expression)
