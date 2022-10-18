@@ -19,9 +19,13 @@ public class Prob003_String {
 		private static String makeInitial(String fullName) {
 			//fullName의 매개변수에서 각 단어의 첫글자만
 			//반환하는 프로그램을 구현하시오.
+			String[] array = fullName.split(" ");
+			String res = "";
+			for(int i=0; i<array.length; i++) {
+				res += array[i].charAt(0);
+			}
 			
-			
-			return null;
+			return res;
 		}//end makeInitial()
 
 }//end class

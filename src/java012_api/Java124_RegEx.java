@@ -17,7 +17,7 @@ public class Java124_RegEx {
 		for(int i=0; i<sn.length(); i++) {
 			char data = sn.charAt(i);
 			if(data == 'a' || data == 'r') sg += "_";
-			else sg += data;      
+			else sg += data;       
 		}  
 		System.out.println(sg); //j_v_ ko_e_
 		
@@ -26,6 +26,21 @@ public class Java124_RegEx {
 		//sn변수에 저장된 문자열에서 a이거나 r이면 "_"로 변경한다.
 		System.out.println(sn.replaceAll("[ar]", "_"));
 		
+		//sn변수에 저장된 문자열에서 a이거나 r이 포함되어 있으면 true 아니면 false를 리턴
+		//atest, rtest, testa, testr, terst
+		System.out.println(sn.matches(".*[ar].*")); //. 은 임의의 문자 하나, *은 여러개
+		
+		//sn변수 저장된 문자열에서 a이거나 r로 시작하면 true 아니면 false를 리턴
+		System.out.println(sn.matches("[ar].*"));
+		
+		//sn변수 저장된 문자열에서 a이거나 r로 끝나면 true 아니면 false를 리턴
+		System.out.println(sn.matches(".*[ar]"));
+		
+		//{2,3} : 2개부터 3개까지의 공백을 "@"으로 변경한다.
+		String st = "java    korea"; //13
+		String sa = st.replaceAll("\\s{2,3}","@"); //java@ korea \\s : 공백
+		System.out.println(sa); //java@ korea
+		System.out.println(sa.length()); //11
 		
 	}
 

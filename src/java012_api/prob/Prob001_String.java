@@ -13,14 +13,21 @@ public class Prob001_String {
 	public static void main(String[] args) {
 		System.out.println(initcap("hello world java"));
 		System.out.println(initcap("java programming"));
+		
 	}// end main()
 
 	private static String initcap(String str) {
 		// 매개변수로 받은 문자열에서 각 단어의 첫 번째 글자만 대문자로
 		// 변환하여 반환하는 프로그램을 구현하시오.
-		
-	
-		return null;
-		
+		String[] arr = str.split(" ");
+		String res = "";
+		for(int i=0 ; i<arr.length; i++) {
+			for(int j=0; j<arr[i].length(); j++) {
+				if(j == 0) res += (char)(arr[i].charAt(j)-32);
+				else res += arr[i].charAt(j);
+			}
+			if(!(i == arr.length-1)) res += ' '; 
+		}
+		return res;
 	}// end initcap()
 }// end class
