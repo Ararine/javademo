@@ -15,6 +15,8 @@ public class Java138_Random {
 		int r3 = ran.nextInt(10); //nextInt(10) : 0부터 10미만
 		System.out.println(r3);
 		
+		int r4 = ran.nextInt(20);
+		System.out.println(r4);
 		//1부터 ~ 10까지
 		System.out.println(r3+1);
 	}//end main()

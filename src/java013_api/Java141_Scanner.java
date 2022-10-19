@@ -3,7 +3,7 @@ package java013_api;
 import java.util.Scanner;
 
 public class Java141_Scanner {
-
+	//Scanner class 메소드2
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 
