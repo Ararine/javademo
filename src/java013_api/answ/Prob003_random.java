@@ -1,7 +1,6 @@
-package java013_api.prob;
+package java013_api.answ;
 
 /*[문제]
-
  * 2~20 사이의 난수 10개를 발생시켜 배열에 저장한 후에 리턴하는 
  * makeArray() 메서드와 배열에서 소수를 구하여 출력하는 primeNumber() 메서드를 각각 구현하시오.
  * [출력결과]
@@ -27,26 +26,30 @@ public class Prob003_random {
 
 	private static int[] makeArray() {
 		// 난수값를 발생시킨후 반환하는 프로그램을 구현하시오.
+		int[] arr = new int[10];
 		Random ran = new Random();
-		int[] nan = new int[10];
-		for(int i=0; i<10; i++) {
-			nan[i] = ran.nextInt(19) + 2;
-		}
-		return nan;
+
+		for (int i = 0; i < arr.length; i++)
+			arr[i] = ran.nextInt(19) + 2;
+
+		return arr;
 	}// end makeArray()
 
 	public static void primeNumber(int[] array) {
 		// array배열에서 소수만 출력하는 프로그램을 구현하시오.
-		for(int i=0; i<array.length; i++) {
-			for(int j=2; j<=array[i]; j++) {
-				if(array[i]%j == 0) {
-					if(j==array[i]) System.out.printf("%4d", array[i]);
-					else break;
-					
-				}
+		int count = 0;
+		for (int j = 0; j < array.length; j++) {
+
+			for (int i = 2; i < array[j]; i++) {
+				if (array[j] % i == 0)
+					count++;
 			}
+
+			if (count == 0)
+				System.out.printf("%4d",array[j] );
+			count = 0;
 		}
-		
+
 	}// end primeNumber()
 
 }// end class
