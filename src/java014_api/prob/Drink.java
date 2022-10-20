@@ -11,7 +11,7 @@ public class Drink {
 
 	public Drink(String name, int price, int count) {
 		super();
-		this.name = name;
+		this.name = name; 
 		this.price = price;
 		this.count = count;
 	}
@@ -42,7 +42,7 @@ public class Drink {
 	
 	public void display(){
 		System.out.println("*****음료수 주문****");
-		System.out.printf("고객님은 음료수 %s,%d개를 주문하셨습니다.\n",name,count);
+		System.out.printf("고객님은 음료수 %s, %d개를 주문하셨습니다.\n",name,count);
 		System.out.printf("지불하실 금액은 %d원 입니다.\n\n",price*count);
 		
 	}

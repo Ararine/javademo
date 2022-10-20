@@ -23,7 +23,7 @@ public class Java151_Calendar {
 		
 		long eventDay = examDay.getTimeInMillis();
 		long nowDay = toDay.getTimeInMillis();
-		System.out.println("eventDay:" + eventDay);
+		System.out.println("eventDay:" + eventDay); 
 		System.out.println("nowDay:" + nowDay);
 		
 		//하루 계산

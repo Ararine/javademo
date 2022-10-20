@@ -12,17 +12,17 @@ public class Java149_Calendar {
 //		Test ts = Test.getInstance();
 //		ts.prn();
 		
-		Calendar cal = Calendar.getInstance();
+		Calendar cal = Calendar.getInstance(); 
 		System.out.println(cal.toString());
 		
 		int year = cal.get(Calendar.YEAR);
 		
 		//MONTH은 1월 일때 0으로 리턴한다.
-		int month = cal.get(Calendar.MONTH) + 1;
+		int month = cal.get(Calendar.MONTH) + 1; 
 		
 		int date = cal.get(Calendar.DATE);
 		
-		//int hour = cal.get(Calendar.HOUT); 12시간
+//		int hour = cal.get(Calendar.HOUR); //12시간
 		int hour = cal.get(Calendar.HOUR_OF_DAY); //24시간
 		int minute = cal.get(Calendar.MINUTE);
 		int second = cal.get(Calendar.SECOND);
@@ -37,7 +37,7 @@ public class Java149_Calendar {
 		
 		//오늘을 기준으로 5일전의 날짜로 설정
 		cal.add(Calendar.DATE, -5);
-		System.out.println(cal.toString());
+		System.out.println(cal.toString()); 
 		
 		cal.set(Calendar.YEAR, 2020);
 		System.out.println(cal.toString());

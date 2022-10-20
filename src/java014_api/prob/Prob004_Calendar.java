@@ -36,9 +36,38 @@ public class Prob004_Calendar {
 
 	public static int[][] process(int year, int month) {
 		int[][] data = new int[6][7];
+		Calendar sDay = Calendar.getInstance();
+		sDay.set(year, month-1, 1);
+//		System.out.println(sDay);
+		int eventDay = sDay.get(Calendar.DAY_OF_WEEK);
+//		int maxDate = sDay.getActualMaximum(Calendar.DATE);
+//		System.out.println(maxDate);		
+//		System.out.println(eventDay);
+		int cnt = 0;
+		end:
+		for(int i=0; i<data.length; i++) {
+			for(int j=0; j<data[i].length; j++) {
+				if(i == 0 ) {
+					if(j == eventDay-1) {
+						cnt = 1;
+						data[i][j] = cnt;
+						cnt++;
 
+					}else if(j > eventDay-1){
+						data[i][j] =cnt;
+						cnt++;
+					}
+				}else {
+					data[i][j] =cnt;
+					cnt++;
+				}
+//				System.out.printf("%4d", data[i][j]);
+				if(cnt > sDay.getActualMaximum(Calendar.DATE)) break end;
+			}
+//			System.out.println();
+		}
 		
-		return data;
+		return data; 
 	}
 
 	public static void prn(int arr[][], int year, int month) {
@@ -46,6 +75,29 @@ public class Prob004_Calendar {
 
 		System.out.println("  일    월    화    수    목    금    토");
 		
+//		char[][] array = new char[arr.length][7];
+		
+		
+		for(int i=0; i<arr.length; i++) {
+			for(int j=0; j<arr[i].length; j++) {
+				System.out.printf("%5d", arr[i][j]);
+			}
+			System.out.println();
+		}
+		
+//		for(int i=0; i<array.length; i++) {
+//			for(int j=0; j<array[i].length; j++) {
+//				if(arr[i][j] == 0 ) array[i][j] = ' ';
+//				else array[i][j] = (char)arr[i][j];
+//			}
+//		}
+//		
+//		for(int i=0; i<array.length; i++) {
+//			for(int j=0; j<array[i].length; j++) {
+//				System.out.printf("%5c", array[i][j]);
+//			}
+//			System.out.println();
+//		}
 		
 
 	}// end prn()

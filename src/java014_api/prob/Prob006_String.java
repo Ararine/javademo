@@ -14,18 +14,25 @@ public class Prob006_String {
 		
 		System.out.print("97에서 122까지정수 입력:");
 		int x=sc.nextInt();
-		
-		System.out.printf("%s\n", result(toChar(x)));
+
+		System.out.printf("%s\n", result(toChar(x)));  
 	}
 	
 	public static char toChar(int x){
-		
-		return ' '; 
+		Scanner scan = new Scanner(System.in);
+		while(true) {
+			if(x < 97 || x>123)
+			System.out.println("x는 97이상 122이하입니다.");
+			else break;
+			x = scan.nextInt();
+		}
+		return (char)x; 
 	}
 	
 	public  static String result(char data){
+	Character ch = Character.valueOf(data);
 	
-		return null;
+		return ch.toString();
 	}	
 }
 
