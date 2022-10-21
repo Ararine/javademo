@@ -2,6 +2,7 @@ package java016_stream.prob;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.RandomAccessFile;
 import java.util.Scanner;
 
 /*[문제]
@@ -22,12 +23,36 @@ import java.util.Scanner;
 public class Prob002_stream {
 	public static void main(String[] args) {
 		String fileName = ".\\src\\java016_stream\\prob\\data.txt";
-		makeVariable(fileName);
+		try {
+			makeVariable(fileName);
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
 	}// end main()
 
-	private static void makeVariable(String fileName) {
+	private static void makeVariable(String fileName) throws FileNotFoundException {
 		// 구현하세요.
-	
-
+		File file = new File(fileName);
+		try {
+			Scanner sc = new Scanner(file);
+			while(sc.hasNextLine()) {
+				String[] line = sc.nextLine().toLowerCase().split("_");
+				String letter = "";
+				for(int i=0; i<line.length; i++) {
+					for(int j=0; j<line[i].length(); j++ ) {
+						if(i != 0 && j == 0) letter += (char)(line[i].charAt(j)-32);
+						else letter += line[i].charAt(j);
+					}
+				}
+				System.out.println(letter);
+				
+				
+			}
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}// end makeVariable()
 }// end class

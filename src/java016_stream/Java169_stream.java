@@ -23,8 +23,8 @@ public class Java169_stream {
 			System.out.println(raf.readLine()); //im:56/78/12
 			System.out.println(raf.getFilePointer()); //14 (enter = carriage retrun : /r line feed : /n) 때문
 			System.out.println(raf.readLine()); //hong:46/100/97
-			System.out.println(raf.getFilePointer()); //30
 			
+			System.out.println("====================");
 			/*
 			kim:56/78/12
 			hong:46/100/97
@@ -51,7 +51,7 @@ public class Java169_stream {
 				raf.close();
 			} catch (IOException e) {
 				e.printStackTrace();
-			}
+			} 
 		}
 	}//end main()
 }//end class

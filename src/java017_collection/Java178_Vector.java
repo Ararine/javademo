@@ -3,7 +3,7 @@ package java017_collection;
 import java.util.Vector;
 
 public class Java178_Vector {
-
+	//Vector - add(), get()
 	public static void main(String[] args) {
 		Vector v = new Vector();
 		//Integer -> Object : up-casting
@@ -27,5 +27,11 @@ public class Java178_Vector {
 		System.out.println(it3.intValue());
 		System.out.println(it4.intValue());
 		System.out.println(sn.toString());
+		try {
+			
+		System.out.println(v.get(20));
+		} catch(ArrayIndexOutOfBoundsException ex) {
+			System.out.println(ex.toString());
+		}
 	}//end main()
 }//end class

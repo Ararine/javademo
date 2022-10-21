@@ -15,7 +15,32 @@ public class UserList {
 	}
 	
 	public void add(Object element) {
-		
+		if(sale.length == pointer) {
+			Object[] arr = new Object[sale.length*2];
+			System.arraycopy(sale, 0, arr, 0, sale.length);
+			sale = arr;
+		}
 		sale[pointer++] = element;
+	}
+	
+	public Object get(int index){
+		if(index<pointer)
+		return sale[index];
+		else 
+			throw new ArrayIndexOutOfBoundsException(index);
+
+	}
+	
+	public int size() { //요소개수
+		return pointer; //배열의 개수가 아닌 pointer로 한 이유는 pointer가 가리키는 번호가 현재 배열안에 들어간 값이기 때문
+	}
+	
+	public Object remove(int index) {
+		Object obj = sale[index];
+		for(int i=index; i<pointer; i++) {
+			sale[i] = sale[i+1];
+		}
+		pointer--;
+		return obj;
 	}
 }
