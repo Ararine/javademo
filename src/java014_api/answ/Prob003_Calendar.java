@@ -1,4 +1,5 @@
-package java014_api.prob;
+package java014_api.answ;
+
 
 import java.util.Calendar;
 
@@ -20,21 +21,20 @@ import java.util.Calendar;
  *  Good Night
  */
 
-
 public class Prob003_Calendar {
 	public static void main(String[] args) {
-		Calendar cal = Calendar.getInstance();
+		Calendar now = Calendar.getInstance();
+		int hourOfDay = now.get(Calendar.HOUR_OF_DAY);
+		int minute = now.get(Calendar.MINUTE);		
+		System.out.println("지금은 " + hourOfDay + "시 " + minute + "분입니다.");
 		
-		int hour = cal.get(Calendar.HOUR_OF_DAY);
-		int minute = cal.get(Calendar.MINUTE);
-		System.out.printf("지금은 %d시 %d분입니다.\n", hour, minute);
-		
-		if(hour >= 4 && hour < 12) {
+		if(hourOfDay >= 4 && hourOfDay < 12) 
 			System.out.println("Good Morning");
-		}else if(hour >= 12 && hour < 18) {
+		else if(hourOfDay >= 12 && hourOfDay < 18) 
 			System.out.println("Good Afternoon");
-		}else if(hour >= 18 && hour < 22) {
+		else if(hourOfDay >= 18 && hourOfDay < 22) 
 			System.out.println("Good Evening");
-		}else System.out.println("Good Night");
-	}//end main()
-}//end class
+		else
+			System.out.println("Good Night");			
+	}
+}

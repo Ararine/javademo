@@ -1,5 +1,4 @@
-
-package java014_api.prob;
+package java014_api.answ;
 
 /*
  * [출력결과]
@@ -22,19 +21,19 @@ public class Prob005_String {
 		
 		String dtwo="사이다:1200:2";
 		String[] arr2=tokenData(dtwo);
-		Drink d2=process(arr2); 
+		Drink d2=process(arr2);
 		d2.display();
 
 	}//end main()
 	
 	public static String[] tokenData(String data){
-		String[] array = data.split(":");
-		return array;
+		
+		return data.split(":");
 	}
 	
 	public static Drink process(String[] data){
-		Drink dr = new Drink(data[0], Integer.parseInt(data[1]), Integer.parseInt(data[2]));
-		return dr;
+		Drink dn=new Drink(data[0],Integer.parseInt(data[1]),Integer.parseInt(data[2]));
+		return dn;
 	}
 	
 	
