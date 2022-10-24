@@ -20,9 +20,14 @@ public class Prob004_ArrayList {
 
 	public static ArrayList<Integer> merge(int[] arr, int[] num) {
 		// arr,num배열을 병합한후 2의 배수만 리턴하는 프로그램을 구현하시오.
-		
-		
-		return null;
+		ArrayList<Integer> ai = new ArrayList<Integer>();
+		int[] array = new int[arr.length + num.length];
+		System.arraycopy(arr, 0, array, 0, arr.length);
+		System.arraycopy(num, 0, array, arr.length, num.length);
+		for(int chk : array) 
+			if(chk%2 ==0 ) 
+				ai.add(chk);
+		return ai;
 
 	}// end merge();
 

@@ -27,9 +27,15 @@ public class Prob001_Vector {
 
 	private static Vector<Book> makeBookList() throws Exception {
 		// booklist.txt 파일의 데이터를 Vector에 저장한 후 리턴하는 프로그램을 구현하시오.
-	
+		Vector<Book> vt = new Vector<Book>();
+		Scanner scn = new Scanner(new File("./src/Java017_collection/prob/booklist.txt"));
+		while(scn.hasNextLine()) {
+
+			String[] array = scn.nextLine().split("/");
+			vt.add(new Book(array[0], array[1], array[2], array[3]));
+		}
 		
-		return null;
+		return vt;
 
 	}// end makeBookList()
 

@@ -1,4 +1,4 @@
-package java017_collection;
+package java018_collection;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -6,7 +6,7 @@ import java.util.LinkedList;
 /*
  * 1. 배열 구조로 데이터 관리 : Vector, ArrayList
  * 						ArrayList - 추가 - (순차적으로 처리할 때 사용)
- * 2. 노드로 데이터 관리 : LinkedLIst
+ * 2. 노드로 데이터 관리 : LinkedList
  * 						삽입, 삭제 - (비순차적으로 처리할 때 사용)
  * 3. List를 구현해놓은 컬렉션
  * 		Vector, ArrayList, LinkedList은 add()해준 순서대로
@@ -32,7 +32,7 @@ public class Java188_LinkedList {
 		
 		System.out.println("=================================");
 		
-		System.out.println("===LikedList===");
+		System.out.println("===LinkedList===");
 		LinkedList<String> aNode = new LinkedList<String>();
 		//append
 		aNode.add(new String("java"));

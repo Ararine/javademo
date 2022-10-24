@@ -3,7 +3,7 @@ package java017_collection;
 import java.util.ArrayList;
 
 public class Java185_ArrayList {
-	//ArrayList 메소드
+	//String.contains() VS ArrayList.contains()
 	public static void main(String[] args) {
 		ArrayList<String> aList = new ArrayList<String>();
 		aList.add(new String("Java"));

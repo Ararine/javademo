@@ -12,6 +12,7 @@ import java.util.ArrayList;
  * 등락가격 : 2500
  */
 
+
 public class Prob006_ArrayList {
 
 	public static void main(String[] args) {
@@ -25,7 +26,18 @@ public class Prob006_ArrayList {
 	
 	public static void prnDisplay(ArrayList<Kospi> aList){
 		//상승 종목을 출력하는 프로그램을 구현하시오.
-		
+		for(int i=0; i<aList.size(); i++ ) {
+			String fPrice = aList.get(i).getFluctuation();
+			char[] num = new char[fPrice.length()];
+			String fNum = "";
+			for(int j=0; j<fPrice.length(); j++ ) {
+				if(fPrice.charAt(j) == '-' || fPrice.charAt(j) >= '0' && fPrice.charAt(j) <= '9')
+					fNum += fPrice.charAt(j);
+			}
+			if(aList.get(i).getFluctuation().contains("상승가"))
+				System.out.printf("주가종목 : %s\n현재가격 : %d\n등락가격 : %s\n", 
+						aList.get(i).getStock(), aList.get(i).getPrice(), fNum);
+		}
 		
 		
 	}//end prnDispaly()

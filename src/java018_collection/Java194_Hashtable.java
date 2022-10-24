@@ -1,7 +1,10 @@
-package java017_collection;
+package java018_collection;
 
 import java.util.Enumeration;
 import java.util.Hashtable;
+import java.util.Set;
+
+
 
 /*
  * Hashtable
@@ -17,6 +20,7 @@ public class Java194_Hashtable {
 		table.put(10, "java");
 		table.put(20,  "jsp");
 		table.put(30,  "spring");
+		table.put(20, "mysql"); //key 값이 같으면 update
 		
 		System.out.println(table.get(10)); //Hashtable 에서는 index 값 대신 key 값을 넣어준다.
 		
@@ -33,6 +37,12 @@ public class Java194_Hashtable {
 			Integer key = enuKey.nextElement();
 			System.out.printf("%d:%s \n", key, table.get(key));
 		}
+		
+		System.out.println("===========================================");
+		Set<Integer> st = table.keySet();
+//		for(Integer key : table.keySet())
+		for(Integer key : st)
+			System.out.printf("%d:%s\n", key, table.get(key));
 	}//end main()
 	
 }//end class
