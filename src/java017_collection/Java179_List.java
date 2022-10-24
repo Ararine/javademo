@@ -1,6 +1,6 @@
 package java017_collection;
 
-public class Java179_Vector {
+public class Java179_List {
 	//Linear data
 	public static void main(String[] args) {
 		UserList uList = new UserList();
