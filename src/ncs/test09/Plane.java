@@ -14,8 +14,7 @@ abstract class Plane {
 	}
 	
 	public void refuel(int fuel) {
-		int fS = this.fuelSize + fuel;
-		System.out.printf("%s \t\t %d\n", planeName, fS);
+		System.out.printf("%s \t\t %d\n", getPlaneName(), getFuelSize() + fuel);
 	}
 	
 	public void flight(int distance) {

@@ -1,5 +1,6 @@
 package ncs.test13;
 
+import java.util.HashMap;
 import java.util.Map;
 
 public class MapTest {

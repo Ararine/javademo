@@ -28,13 +28,13 @@ public class User {
 	
 	@Override
 	public boolean equals(Object obj) {
-		return super.equals(obj);
-	}
+
+		return this.toString().equals(obj.toString());
+		}
 	
 	public Object clone() {
-		
-	
-	}
+		return new User(getId(), getPassword(), getName(),getAge(),getGender(),getPhone());
+	} 
 
 	public String getId() {
 		return id;

@@ -47,7 +47,8 @@ public class Java125_RegEx {
 		 * start(int group) : group이 매칭되는 시작 인덱스 반환
 		 * end() : 매칭된 패턴 한칸 뒤 인덱스 반환 
 		 * end(int group) : 지정되 그룹이 매칭되는 한칸 뒤 인덱스 반환 
-		 * group() : 최초로 그룹 매칭된 패턴을 반환 group(int group) : 그룹 매칭된 부분중 group번째 패턴을 반환 
+		 * group() : 최초로 그룹 매칭된 패턴을 반환 
+		 * 	group(int group) : 그룹 매칭된 부분중 group번째 패턴을 반환 
 		 * groupCount() : 패턴내 그룹핑(괄호로 묶은 패턴들)의 갯수 반환
 		 * matches() : 패턴이 전체 문자열과 일치하면 True
 		 */

@@ -12,12 +12,12 @@ public class Sales extends Employee implements Bonus {
 
 	@Override
 	public double tax() {
-		// TODO Auto-generated method stub
-		return super.tax();
+		return 0.13 * getSalary();
 	}
 
 	@Override
 	public void incentive(int pay) {
-
+		 super.setSalary(getSalary() + (int)(1.2 * pay));
 	}
+	
 }

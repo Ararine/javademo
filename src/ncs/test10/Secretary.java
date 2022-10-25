@@ -13,12 +13,13 @@ public class Secretary extends Employee implements Bonus{
 	@Override
 	public double tax() {
 		
-		return super.tax();
+		return 0.1 * getSalary();
 	}
 	
 	@Override
 	public void incentive(int pay) {
-		// TODO Auto-generated method stub
-		
+		super.setSalary(getSalary() + (int)(0.8 * pay));
 	}
+	
+	
 }
