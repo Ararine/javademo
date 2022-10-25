@@ -22,7 +22,7 @@ public class Java190_LinkedList {
 //		System.out.println(nStack.pop());
 //		System.out.println(nStack.pop()); //java.util.NoSuchElementException 
 		
-		while(!nStack.isEmpty()) //isEmpty() : 요소가 없으면 true 없으면 false
-			System.out.println(nStack.pop());
+//		while(!nStack.isEmpty()) //isEmpty() : 요소가 없으면 true 없으면 false
+//			System.out.println(nStack.pop());
 		}
 }

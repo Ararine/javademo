@@ -1,4 +1,4 @@
-﻿package java017_collection.prob;
+package java017_collection.answ;
 
 
 import java.io.File;
@@ -31,43 +31,49 @@ public class Prob005_ArrayList {
      /*
       * tv.txt파일의 데이터를 ArrayList에 저장하는 프로그램을 구현하시오.
       */
-	try(Scanner scn = new Scanner(new File("./src/java017_collection/prob/tv.txt"))) {
 		
-		while(scn.hasNextLine()) {
-			String[] array = scn.nextLine().split(":");
-			Television tv = new Television();
-			tv.setRank(Integer.parseInt(array[0]));
-			tv.setProgram(array[1]);
-			tv.setChannel(array[2]);
-			tv.setRating(Double.parseDouble(array[3]));
-			aList.add(tv);
+		try {
+			Scanner  sc=new Scanner(new File(".\\src\\java0412_collection\\answ\\tv.txt"));
+			
+			while(sc.hasNext()){
+				String line=sc.nextLine();
+				String arr[]=line.split(":");
+				Television tv=new Television();
+				tv.setRank(Integer.parseInt(arr[0]));
+				tv.setProgram(arr[1]);
+				tv.setChannel(arr[2]);
+				tv.setRating(Double.parseDouble(arr[3]));
+				aList.add(tv);
+			}
+		} catch (FileNotFoundException e) {			
+			e.printStackTrace();
 		}
-	} catch (FileNotFoundException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}
-		prnDisplay(aList, "MBC");
-		prnDisplay(aList, "KBS1");
-		prnDisplay(aList, "KBS2");
-		prnDisplay(aList, "SBS");
+	
+		
+		
+		prnDisplay(aList,"MBC");
+		prnDisplay(aList,"KBS1");
+		prnDisplay(aList,"KBS2");
+		prnDisplay(aList,"SBS");
 
 	}//end main()
 	
 	public static void prnDisplay(ArrayList<Television> aList, String channel){
 		//channel매개변수에 해당하는 프로그램이 출력되도록 구현하시오.
-		System.out.printf("[%s]\n", channel);
-//		for(int i=0; i<aList.size(); i++ ) {
-//			if(aList.get(i).getChannel().equals(channel))
-//				System.out.printf("%d %s %s %.1f\n", aList.get(i).getRank(),
-//						aList.get(i).getProgram(), channel, 
-//						aList.get(i).getRating());
-//		}
-		for(Television tv : aList) {
+		System.out.println("["+channel+"]");
+		for(Television tv : aList){
 			if(tv.getChannel().equals(channel))
-				 //*   4  오로라 공주      MBC   13.0
-				System.out.printf("%4d \t %-10s \t %-4s \t %5.1f\n", 
-						tv.getRank(), tv.getProgram(), tv.getChannel(), tv.getRating());
+				System.out.printf("%3d \t %-10s \t %-4s %5.1f\n",
+						  tv.getRank(),tv.getProgram(),tv.getChannel(),tv.getRating());
 		}
 	}//end prnDisplay()
 
 }//end class
+
+
+
+
+
+
+
+
