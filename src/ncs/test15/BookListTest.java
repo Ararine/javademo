@@ -18,9 +18,9 @@ public class BookListTest {
 		
 		test5.saveFile(list);
 		
-//		List<Book> booksList = test5.loadFile();
+		List<Book> booksList = test5.loadFile();
 		
-//		test5.printList(booksList);
+		test5.printList(booksList);
 	}
 	
 	public void storeList(List<Book> list) {
@@ -32,14 +32,15 @@ public class BookListTest {
 	
 	public void saveFile(List<Book> list) {
 		File path = new File("./src/ncs/test15/books.dat");
-		FileWriter fw = null;
-		
+		FileWriter fw = null;	
 		try {
 			fw = new FileWriter(path, false);
 			Scanner scn = new Scanner(path);
 			for(int i=0; i<list.size(); i++) {
-				fw.write(list.get(i).toString() + "\n");
+				fw.write(list.get(i).toString());
+				fw.flush();
 			}
+			fw.close();
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -50,25 +51,34 @@ public class BookListTest {
 	}
 	
 	
-//	public List<Book> loadFile() {
-//		List<Book> list = new ArrayList();
-//		Scanner scn;
-//		try {
-//			scn = new Scanner(new File("./src/ncs/test15/books.dat"));
-//			while(scn.hasNextLine()) {
-//				String[] str = scn.nextLine()
-//						
-//			}
-//		} catch (FileNotFoundException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-//			
-//
-//		return null;
-//	}
+	public List<Book> loadFile() {
+		List<Book> list = new ArrayList<Book>();
+		Scanner scn;
+		try {
+			scn = new Scanner(new File("./src/ncs/test15/books.dat"));
+			while(scn.hasNextLine()) {
+				String[] str = scn.nextLine().split(" ");
+				list.add(new Book(str[0] + " " + str[1], str[2], Integer.parseInt(str[3]), str[4], Double.parseDouble(str[5])));					
+			}
+			return list;
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+			
+
+		return null;
+	}
 	
 	public void printList(List<Book> list) {
-		
+		for(int i=0; i< list.size(); i++) {
+			
+			System.out.printf("%s, %s, %s, %d원, %.0f%% 할인\n", 
+					list.get(i).getTitle(), list.get(i).getAuthor(), 
+					list.get(i).getPublisher(), list.get(i).getPrice(),
+					list.get(i).getDiscountRate() * 100);
+			System.out.printf("할인된 가격 : %.0f원\n", list.get(i).getPrice() - 
+					(list.get(i).getPrice() * list.get(i).getDiscountRate()));
+		}
 	}
 }
