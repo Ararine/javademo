@@ -1,7 +1,7 @@
 package java020_thread.part02;
 
 public class Java213_thread {
-	//Thread - currentThread()
+	//Thread - currentThread() : 현재 쓰레드를 잡는다.
 	public static void main(String[] args) {
 		UserImp um = new UserImp();
 		Thread th = new Thread(um);

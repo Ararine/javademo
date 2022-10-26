@@ -31,8 +31,8 @@ public class Java212_thread {
 //		us.run(); //run() 메소드 실행, thread 호출 아님
 		us.start();
 		
-		for(int j=0; j<=5; j++) {
-			System.out.printf("%s j=%d\n", Thread.currentThread().getName(), j); //Thread[main,5,main]
-		}
+//		for(int j=0; j<=5; j++) {
+//			System.out.printf("%s j=%d\n", Thread.currentThread().getName(), j); //Thread[main,5,main]
+//		}
 	}//end main()
 }//end class
