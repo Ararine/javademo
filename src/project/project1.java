@@ -6,61 +6,42 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.LinkedList;
 import java.util.Scanner;
 
-public class project {
+public class project1 {
 
 	public static void main(String[] args) {
-		Scanner scnI = new Scanner(System.in);
-		String path = "./src/project/product.txt";
-		try (Scanner scnF = new Scanner(new File(path)); FileWriter fw = new FileWriter(path, true);) {
-			LinkedList<Product> ap = new LinkedList<Product>();
-			while (scnF.hasNextLine()) {
-				String[] array = scnF.nextLine().split(",");
-				ap.add(new Product(array[0], array[1], Integer.parseInt(array[2]), array[3]));
+		Scanner scn = new Scanner(System.in);
+		System.out.println("[실행결과]");
+		int number = 0;
+		
+		while (number != 4) {
+			System.out.printf("1.상품등록 2.상품조회 3.상품제거 4.종료\n");
+			System.out.println("1부터 4까지 숫자를 입력하세요");
+			number = scn.nextInt();
+			switch (number) {
+			case 1:
+				registerProduct();
+				break;
+			case 2:
+				checkProduct();
+				break;
+			case 3:
+				removeProduct();
+				break;
+			case 4:
+				break;
+			default:
+				System.out.println("잘못 입력하셨습니다.");
 			}
+		} // end while
 
-			System.out.println("[실행결과]");
-			int number = 0;
-
-			while (number != 4) {
-				System.out.printf("1.상품등록 2.상품조회 3.상품제거 4.종료\n");
-				System.out.println("1부터 4까지 숫자를 입력하세요");
-				number = scnI.nextInt();
-				switch (number) {
-				case 1:
-					registerProduct(ap, path);
-					break;
-				case 2:
-					checkProduct(ap, path);
-					break;
-				case 3:
-					removeProduct(ap, path);
-					break;
-				case 4:
-					break;
-				default:
-					System.out.println("잘못 입력하셨습니다.");
-				}
-			} // end while
-
-			System.out
-					.println("=======================================================================================");
-			System.out.println("프로그램을 종료합니다.");
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		} finally {
-			scnI.close();
-		}
-
+		System.out.println("=======================================================================================");
+		System.out.println("프로그램을 종료합니다.");
 	}// end main()
 
-	public static void registerProduct(LinkedList<Product> list, String path) {
+	public static void registerProduct() {
+		ArrayList<Product> ap = new ArrayList<Product>();
 		Scanner scn = new Scanner(System.in);
 		boolean chk = false;
 		String ct = "null";
@@ -87,14 +68,23 @@ public class project {
 			}
 
 			chk: for (int i = 0;; i++) {
-				System.out.println("상품명을 입력하세요.");
-				System.out.println("예) 맛있는 라면 -> 맛있는라면");
-				nm = scn.next();
-				for (int j = 0; j < list.size(); j++) {
-					if (list.get(j).getName().equals(nm)) {
-						System.out.println("이미 같은 상품이 등록되었습니다.\n");
-						continue chk;
+				try (Scanner sc = new Scanner(new File("./src/project/product.txt"))) {
+					while (sc.hasNextLine()) {
+						String[] array = sc.nextLine().split(",");
+						ap.add(new Product(array[0], array[1], Integer.parseInt(array[2]), array[3]));
 					}
+					System.out.println("상품명을 입력하세요.");
+					System.out.println("예) 맛있는 라면 -> 맛있는라면");
+					nm = scn.next();
+					for (int j = 0; j < ap.size(); j++) {
+						if (ap.get(j).getName().equals(nm)) {
+							System.out.println("이미 같은 상품이 등록되었습니다.\n");
+							continue chk;
+						}
+					}
+				} catch (FileNotFoundException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
 				}
 				break;
 			}
@@ -138,10 +128,11 @@ public class project {
 			if (scn.next().equals("y"))
 				chk = true;
 		} while (chk == false);
-		list.add(0, new Product(ct, nm, Integer.parseInt(pr), exDate));
+		ap.add(0, new Product(ct, nm, Integer.parseInt(pr), exDate));
+		File path = new File("./src/project/product.txt");
 
 		try (FileWriter fw = new FileWriter(path, true)) {
-			fw.write(list.get(0).toString());
+			fw.write(ap.get(0).toString());
 			fw.flush();
 			fw.close();
 		} catch (IOException e) {
@@ -151,29 +142,52 @@ public class project {
 		System.out.println("=======================================================================================");
 	}// end registerProduct()
 
-	public static void checkProduct(LinkedList<Product> list, String path) {
+	public static void checkProduct() {
+		ArrayList<Product> ap = new ArrayList<Product>();
 		System.out.println("[조회결과]");
-		Scanner sc = new Scanner(System.in);
-		if (list.size() == 0)
-			System.out.println("입력된 상품이 없습니다.");
+		try (Scanner scn = new Scanner(new File("./src/project/product.txt"))) {	
+			Scanner sc = new Scanner(System.in);
+			while(scn.hasNextLine()) {
+				String[] array = scn.nextLine().split(",");
+				ap.add(new Product(array[0], array[1], Integer.parseInt(array[2]), array[3]));
+			}
+			
+			if(ap.size() == 0)
+				System.out.println("입력된 상품이 없습니다.");
 
-		list.sort(new Product());
-
-		for (Product pd : list) {
+			ap.sort(new Product());
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		for (Product pd : ap) {
 			System.out.printf("품목 : %s \t상품명 : %-10s \t가격 : %d원 \t유통기한 : %s년 %s월 %s일까지\n", pd.getCategory(),
 					pd.getName(), pd.getPrice(), pd.getExpireDate().substring(0, 4), pd.getExpireDate().substring(4, 6),
 					pd.getExpireDate().substring(6, 8));
 		}
 		System.out.println("=======================================================================================");
-
+		
 	}// end checkProduct()
 
-	public static void removeProduct(LinkedList<Product> list, String path) {
+	public static void removeProduct() {
+		ArrayList<Product> ap = new ArrayList<Product>();
 		Scanner scn = new Scanner(System.in);
+		File path = new File("./src/project/product.txt");
+
+		// ArrayList에 상품 불러오기
+		try (Scanner sc = new Scanner(path)) {
+			while (sc.hasNextLine()) {
+				String[] array = sc.nextLine().split(",");
+				ap.add(new Product(array[0], array[1], Integer.parseInt(array[2]), array[3]));
+			}
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 		// 상품조회
-		list.sort(new Product());
-		for (Product pd : list)
+		ap.sort(new Product());
+		for (Product pd : ap)
 			System.out.printf("품목 : %s \t상품명 : %-10s \t가격 : %d원 \t유통기한 : %s년 %s월 %s일까지\n", pd.getCategory(),
 					pd.getName(), pd.getPrice(), pd.getExpireDate().substring(0, 4), pd.getExpireDate().substring(4, 6),
 					pd.getExpireDate().substring(6, 8));
@@ -186,22 +200,22 @@ public class project {
 
 		// 입력한 상품 제거 후 File에 입력
 		try (FileWriter fw = new FileWriter(path, false)) {
-			start: for (int i = 0; i < list.size(); i++) {
-				for (int j = 0; j < list.size(); j++) {
-					if (nameProduct.equals(list.get(j).getName())) {
+			start: for (int i = 0; i < ap.size(); i++) {
+				for (int j = 0; j < ap.size(); j++) {
+					if (nameProduct.equals(ap.get(j).getName())) {
 						System.out.printf("\n%s을 제거하시겠습니까?.\n", nameProduct);
 						System.out.println("맞으면 'y' 틀리면 아무키나 입력해주세요.");
 						String chk = scn.next();
 						if (chk.charAt(0) == 'y') {
-							list.remove(j);
-							for (Product pd : list) {
+							ap.remove(j);
+							for (Product pd : ap) {
 								fw.write(pd.toString());
 							}
 							fw.flush();
 							fw.close();
 							break start;
 						} else {
-							for (Product pd : list) {
+							for (Product pd : ap) {
 								fw.write(pd.toString());
 							}
 							fw.flush();
@@ -211,7 +225,7 @@ public class project {
 					}
 				}
 				System.out.println("\n일치하는 상품이 없습니다.");
-				for (Product pd : list) {
+				for (Product pd : ap) {
 					fw.write(pd.toString());
 				}
 				fw.flush();
@@ -224,4 +238,6 @@ public class project {
 		}
 		System.out.println("=======================================================================================");
 	}// end removeProduct()
-}// end class
+
+}
+// end class
