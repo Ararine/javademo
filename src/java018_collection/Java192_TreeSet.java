@@ -22,7 +22,6 @@ public class Java192_TreeSet {
 		tree.add(it4);
 		tree.add(it5);
 		
-		
 		System.out.println("===오름차순===");
 //		System.out.println(tree.size());
 		int cnt = tree.size();

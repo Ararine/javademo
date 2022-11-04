@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class ProductDAO {
@@ -136,6 +137,68 @@ public class ProductDAO {
 				conn.rollback();
 			} catch (SQLException e1) {
 				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+		} finally {
+			try {
+				conn.setAutoCommit(true);
+				exit();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return chk;
+	}
+	
+	public int updatePrice(HashMap<String, Object> hmap) {
+		int chk = -1;
+		try {
+			conn = init();
+			conn.setAutoCommit(false);
+			pstmt = conn.prepareStatement("UPDATE product SET price = ? WHERE name = ?");
+			pstmt.setInt(1, Integer.parseInt(hmap.get("price").toString()));
+			pstmt.setString(2, hmap.get("name").toString());
+			
+			chk = pstmt.executeUpdate();
+			
+			conn.commit();
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+			try {
+				conn.rollback();
+			} catch (SQLException e1) {
+				e1.printStackTrace();
+			}
+		} finally {
+			try {
+				conn.setAutoCommit(true);
+				exit();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return chk;
+	}
+	
+	public int updateExpireDate(HashMap<String, Object> hmap) {
+		int chk = -1;
+		try {
+			conn = init();
+			conn.setAutoCommit(false);
+			pstmt = conn.prepareStatement("UPDATE product SET ExpireDate = ? WHERE name = ?");
+			pstmt.setString(1, hmap.get("expireDate").toString());
+			pstmt.setString(2, hmap.get("name").toString());
+			
+			chk = pstmt.executeUpdate();
+			
+			conn.commit();
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+			try {
+				conn.rollback();
+			} catch (SQLException e1) {
 				e1.printStackTrace();
 			}
 		} finally {

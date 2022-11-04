@@ -1,5 +1,6 @@
 package renewed_project_by_oracle;
 
+import java.util.HashMap;
 import java.util.List;
 
 public class ProductController {
@@ -19,5 +20,13 @@ public class ProductController {
 	
 	public int deleteProcess(String name) {
 		return dao.deleteProduct(name);
+	}
+	
+	public int updatePriceProcess(HashMap<String, Object> hmap) {
+		return dao.updatePrice(hmap);
+	}
+	
+	public int updateExpireDateProcess(HashMap<String, Object> hmap) {
+		return dao.updateExpireDate(hmap);
 	}
 }

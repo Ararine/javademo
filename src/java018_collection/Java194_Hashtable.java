@@ -18,8 +18,8 @@ public class Java194_Hashtable {
 	public static void main(String[] args) {
 		Hashtable<Integer, String> table = new Hashtable<Integer, String>();
 		table.put(10, "java");
-		table.put(20,  "jsp");
-		table.put(30,  "spring");
+		table.put(20, "jsp");
+		table.put(30, "spring");
 		table.put(20, "mysql"); //key 값이 같으면 update
 		
 		System.out.println(table.get(10)); //Hashtable 에서는 index 값 대신 key 값을 넣어준다.
