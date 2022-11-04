@@ -104,7 +104,7 @@ public class project {
 					} else if (exDate.length() > 8) {
 						System.out.println("\n다시 입력해주세요.\n");
 					} else
-						break;
+						break; 
 
 				} catch (NumberFormatException ex) {
 					System.out.println("\n입력단위를 초과하였습니다.\n");
